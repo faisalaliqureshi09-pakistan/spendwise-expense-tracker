@@ -1,4 +1,4 @@
-<img width="1350" height="643" alt="image" src="https://github.com/user-attachments/assets/518240a7-7d68-4837-a3b5-1b788db69cbe" /># 💳 SpendWise AI — Intelligent Personal Finance & Expense Tracker
+# 💳 SpendWise AI — Intelligent Personal Finance & Expense Tracker
 
 [![Live Application](https://img.shields.io/badge/Live_App-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://spendwise-expense-tracker-ai.netlify.app/)
 [![Built with React](https://img.shields.io/badge/Frontend-React_18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
@@ -68,43 +68,33 @@ The **AI Advisor** acts as an automated virtual financial consultant. It reviews
 
 ## 📸 Screenshots of the App in Action
 
-### 1. Welcome Landing Hero & Auth Modal
-<img width="1352" height="639" alt="image" src="https://github.com/user-attachments/assets/92f76d9a-c643-4e2c-8592-2dd6c462d7dd" />
+### 1. Welcome Landing Hero & Auth View
+<img width="1352" height="639" alt="Landing Page" src="https://github.com/user-attachments/assets/92f76d9a-c643-4e2c-8592-2dd6c462d7dd" />
+<img width="1352" height="641" alt="Auth Modal" src="https://github.com/user-attachments/assets/a85c1bff-665b-468a-a868-094a1cee02a5" />
 *Clean Welcome page introducing SpendWise AI features with secure user Login/Signup modals and demo account option.*
-<img width="1352" height="641" alt="image" src="https://github.com/user-attachments/assets/a85c1bff-665b-468a-a868-094a1cee02a5" />
-
----
 
 ### 2. Financial Overview Dashboard
-<img width="1350" height="650" alt="image" src="https://github.com/user-attachments/assets/53fdeffc-80e5-464e-93bd-11996ce8066b" />
+<img width="1350" height="650" alt="Financial Dashboard" src="https://github.com/user-attachments/assets/53fdeffc-80e5-464e-93bd-11996ce8066b" />
 *Interactive dashboard displaying Total Balance, Income, Expense, Savings Rate, and Multi-Currency Dropdown.*
 
----
-
 ### 3. Income vs. Expenses Trend & Category Breakdown
-<img width="1352" height="643" alt="image" src="https://github.com/user-attachments/assets/07efbfac-68cd-4bbc-9b1b-ccaef438686c" />
+<img width="1352" height="643" alt="Income vs Expenses Trend" src="https://github.com/user-attachments/assets/07efbfac-68cd-4bbc-9b1b-ccaef438686c" />
+<img width="1352" height="646" alt="Spending by Category" src="https://github.com/user-attachments/assets/f7b61be9-9243-486b-be7d-318a6a9dd284" />
 *Visual financial trajectory charts and spending distribution breakdown by category.*
-<img width="1352" height="646" alt="image" src="https://github.com/user-attachments/assets/f7b61be9-9243-486b-be7d-318a6a9dd284" />
-
----
 
 ### 4. Transactions Manager & Recent Logs
-<img width="1352" height="646" alt="image" src="https://github.com/user-attachments/assets/4780faca-adb9-4771-a381-29d1161f8a24" />
+<img width="1352" height="646" alt="Transactions Manager" src="https://github.com/user-attachments/assets/4780faca-adb9-4771-a381-29d1161f8a24" />
+<img width="1353" height="637" alt="Recent Transactions" src="https://github.com/user-attachments/assets/bdeaddb7-d94a-4edb-a537-aa194c3e3df9" />
 *Transaction management view with category filters, payment method tagging, and recent record logs.*
-<img width="1353" height="637" alt="image" src="https://github.com/user-attachments/assets/bdeaddb7-d94a-4edb-a537-aa194c3e3df9" />
-
----
 
 ### 5. Monthly Budgets & Spending Caps
-<img width="1352" height="646" alt="image" src="https://github.com/user-attachments/assets/900418c5-2293-4a86-ac39-d8c92c5bfff8" />
+<img width="1352" height="646" alt="Monthly Budgets" src="https://github.com/user-attachments/assets/900418c5-2293-4a86-ac39-d8c92c5bfff8" />
 *Budget tracking interface with visual progress bars monitoring monthly spending limits per category.*
 
----
-
 ### 6. AI Financial Advisor (Gemini AI Coach)
-<img width="1348" height="644" alt="image" src="https://github.com/user-attachments/assets/7b74fad1-e07e-4b42-b30d-035222d3a4b0" />
-
+<img width="1348" height="644" alt="AI Advisor" src="https://github.com/user-attachments/assets/7b74fad1-e07e-4b42-b30d-035222d3a4b0" />
 *AI Financial Coach providing personalized savings insights and financial health coaching based on real-time data.*
+
 ---
 
 ## 🗄️ Database Setup & Supabase RLS Script
@@ -123,11 +113,22 @@ CREATE TABLE IF NOT EXISTS transactions (
   date DATE NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
- ```
+```
 ALTER TABLE transactions DISABLE ROW LEVEL SECURITY;
 ALTER PUBLICATION supabase_realtime ADD TABLE transactions;
 
 💻 How to Run the Project Locally
+
+Follow these instructions to run SpendWise AI on your local machine:
+
+Prerequisites
+
+  - Node.js (v18.0.0 or higher)
+  - npm or yarn or bun
+  - A free Google AI Studio Gemini API Key
+  - A free Supabase Account
+
+Step-by-Step Installation Guide
 
 1.  Clone the Repository:
 ```sql
@@ -138,17 +139,26 @@ ALTER PUBLICATION supabase_realtime ADD TABLE transactions;
 ```sql
     npm install
 ```
-3.  Configure Environment Variables: Create a .env.local file:
-``
+3.  Configure Environment Variables: Create a .env.local file in the root
+    directory:
+```sql
     VITE_GEMINI_API_KEY=your_gemini_api_key_here
     VITE_SUPABASE_URL=your_supabase_project_url
     VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-``
-4.  Start Development Server:
+```
+4.  Start the Development Server:
 ```sql
     npm run dev
 ```
+    Open your browser and navigate to http://localhost:5173.
+
+5.  Build for Production:
+```sql
+    npm run build
+```
 📜 License
 
-Distributed under the MIT License.
+Distributed under the MIT License. See LICENSE for more information.
 
+
+---
