@@ -1,11 +1,3 @@
-Yahan aapka 100% Complete, Final, aur Professional README.md file hai. Ye poora
-English mein hai aur isme aapki app (SpendWise AI), Netlify ka live link, GitHub
-repo link, features, AI system prompt, aur database setup sab kuch mukammal taur
-par shamil hai.
-
-Aap is poore code block ko copy karke apni GitHub repository ki README.md file
-mein paste kar dein:
-
 # 💳 SpendWise AI — Intelligent Personal Finance & Expense Tracker
 
 [![Live Application](https://img.shields.io/badge/Live_App-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://spendwise-expense-tracker-ai.netlify.app/)
@@ -21,6 +13,8 @@ mein paste kar dein:
 ## 🌐 Live Deployed Application
 
 🔗 **Clickable Public Live Link**: [https://spendwise-expense-tracker-ai.netlify.app/](https://spendwise-expense-tracker-ai.netlify.app/)
+
+🔗 **GitHub Repository Link**: [https://github.com/faisalaliqureshi09-pakistan/spendwise-expense-tracker](https://github.com/faisalaliqureshi09-pakistan/spendwise-expense-tracker)
 
 ---
 
@@ -119,18 +113,13 @@ Instructions:
 
 1. Welcome Landing Hero & Auth View
 
-Clean Welcome page introducing SpendWise AI features with secure user
-Login/Signup modals. (See live app or repository assets for visual layout)
-
 2. Financial Overview Dashboard & Multi-Currency Header
-
-Dashboard showing Total Balance, Income, Expense, Savings Rate, and
-Multi-Currency Dropdown (PKR, USD, EUR).
 
 3. Transactions Manager & PDF Export
 
-Interactive transaction table displaying delete action, category filters, and
-the "Export PDF" statement button.
+4. Add Transaction Modal (Categories & Local Payment Methods)
+
+5. AI Financial Advisor Interface
 
 🗄️ Database Setup & Supabase RLS Script
 
