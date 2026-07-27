@@ -69,61 +69,40 @@ The **AI Advisor** acts as an automated virtual financial consultant. It reviews
 ## 📸 Screenshots of the App in Action
 
 ### 1. Welcome Landing Hero & Auth Modal
-![Landing Page]
-
-<img width="1350" height="643" alt="image" src="https://github.com/user-attachments/assets/e8a4511d-e230-408d-8b81-85778bfba741" />
-
 <img width="1352" height="639" alt="image" src="https://github.com/user-attachments/assets/92f76d9a-c643-4e2c-8592-2dd6c462d7dd" />
-
-
 *Clean Welcome page introducing SpendWise AI features with secure user Login/Signup modals and demo account option.*
-
 <img width="1352" height="641" alt="image" src="https://github.com/user-attachments/assets/a85c1bff-665b-468a-a868-094a1cee02a5" />
 
 ---
 
 ### 2. Financial Overview Dashboard
-![Financial Dashboard]
-
 <img width="1350" height="650" alt="image" src="https://github.com/user-attachments/assets/53fdeffc-80e5-464e-93bd-11996ce8066b" />
-
 *Interactive dashboard displaying Total Balance, Income, Expense, Savings Rate, and Multi-Currency Dropdown.*
 
 ---
 
 ### 3. Income vs. Expenses Trend & Category Breakdown
-![Analytics Charts]
-
 <img width="1352" height="643" alt="image" src="https://github.com/user-attachments/assets/07efbfac-68cd-4bbc-9b1b-ccaef438686c" />
-
 *Visual financial trajectory charts and spending distribution breakdown by category.*
-
 <img width="1352" height="646" alt="image" src="https://github.com/user-attachments/assets/f7b61be9-9243-486b-be7d-318a6a9dd284" />
 
 ---
 
 ### 4. Transactions Manager & Recent Logs
-![Transactions Manager](./public/screenshots/transactions.png)
+<img width="1352" height="646" alt="image" src="https://github.com/user-attachments/assets/4780faca-adb9-4771-a381-29d1161f8a24" />
 *Transaction management view with category filters, payment method tagging, and recent record logs.*
-
 <img width="1353" height="637" alt="image" src="https://github.com/user-attachments/assets/bdeaddb7-d94a-4edb-a537-aa194c3e3df9" />
 
 ---
 
 ### 5. Monthly Budgets & Spending Caps
-![Budgets View]
-
 <img width="1352" height="646" alt="image" src="https://github.com/user-attachments/assets/900418c5-2293-4a86-ac39-d8c92c5bfff8" />
-
 *Budget tracking interface with visual progress bars monitoring monthly spending limits per category.*
 
 ---
 
 ### 6. AI Financial Advisor (Gemini AI Coach)
-![AI Advisor Screen]
-
 <img width="1348" height="644" alt="image" src="https://github.com/user-attachments/assets/7b74fad1-e07e-4b42-b30d-035222d3a4b0" />
-
 
 *AI Financial Coach providing personalized savings insights and financial health coaching based on real-time data.*
 ---
