@@ -24,34 +24,109 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
   if (!isOpen) return null;
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
     try {
-      if (!email || !password || (mode === "signup" && !name)) {
+      const cleanEmail = email.trim().toLowerCase();
+      const cleanPassword = password.trim();
+      const cleanName = name.trim();
+
+      if (!cleanEmail || !cleanPassword || (mode === "signup" && !cleanName)) {
         throw new Error("Please fill in all required fields.");
       }
 
-      const endpoint = mode === "signup" ? "/api/auth/signup" : "/api/auth/login";
-      const payload = mode === "signup" ? { name, email, password } : { email, password };
-
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || "Authentication failed");
+      if (cleanPassword.length < 3) {
+        throw new Error("Password must be at least 3 characters.");
       }
 
-      const loggedInUser: User = data.user;
+      const USERS_REGISTRY_KEY = "spendwise_registered_users";
+      let existingUsers: (User & { password?: string })[] = [];
+      try {
+        const stored = localStorage.getItem(USERS_REGISTRY_KEY);
+        if (stored) {
+          existingUsers = JSON.parse(stored);
+        }
+      } catch (err) {
+        existingUsers = [];
+      }
+
+      let loggedInUser: User;
+
+      if (mode === "signup") {
+        const existing = existingUsers.find(
+          (u) => u.email.toLowerCase() === cleanEmail
+        );
+
+        if (existing) {
+          throw new Error("An account with this email already exists. Please Sign In.");
+        }
+
+        const newUser = {
+          id: "user_" + Date.now() + "_" + Math.random().toString(36).substring(2, 7),
+          name: cleanName,
+          email: cleanEmail,
+          password: cleanPassword,
+          createdAt: new Date().toISOString(),
+        };
+
+        existingUsers.push(newUser);
+        localStorage.setItem(USERS_REGISTRY_KEY, JSON.stringify(existingUsers));
+
+        loggedInUser = {
+          id: newUser.id,
+          name: newUser.name,
+          email: newUser.email,
+          createdAt: newUser.createdAt,
+        };
+      } else {
+        // Sign In Mode
+        const found = existingUsers.find(
+          (u) => u.email.toLowerCase() === cleanEmail
+        );
+
+        if (found) {
+          if (found.password && found.password !== cleanPassword) {
+            throw new Error("Incorrect password. Please try again.");
+          }
+          loggedInUser = {
+            id: found.id,
+            name: found.name,
+            email: found.email,
+            createdAt: found.createdAt,
+          };
+        } else {
+          // Create new user record for first-time sign-in
+          const derivedName = cleanEmail.split("@")[0] || "User";
+          const formattedName =
+            derivedName.charAt(0).toUpperCase() + derivedName.slice(1);
+
+          const newUser = {
+            id: "user_" + Date.now() + "_" + Math.random().toString(36).substring(2, 7),
+            name: formattedName,
+            email: cleanEmail,
+            password: cleanPassword,
+            createdAt: new Date().toISOString(),
+          };
+
+          existingUsers.push(newUser);
+          localStorage.setItem(USERS_REGISTRY_KEY, JSON.stringify(existingUsers));
+
+          loggedInUser = {
+            id: newUser.id,
+            name: newUser.name,
+            email: newUser.email,
+            createdAt: newUser.createdAt,
+          };
+        }
+      }
+
       onLoginSuccess(loggedInUser);
       onClose();
     } catch (err: any) {
-      setError(err.message || "Authentication failed. Please check your credentials.");
+      setError(err.message || "Authentication failed. Please check your details.");
     } finally {
       setLoading(false);
     }

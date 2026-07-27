@@ -256,17 +256,6 @@ export default function App() {
 
     syncWithSupabase();
 
-    if (user) {
-      fetch(`/api/budgets?userId=${user.id}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (Array.isArray(data) && data.length > 0) {
-            setBudgets(data);
-          }
-        })
-        .catch(() => {});
-    }
-
     // Subscribe to Supabase Realtime changes
     const channel = supabase
       .channel("realtime-transactions")
@@ -319,12 +308,6 @@ export default function App() {
     } catch (err) {
       console.error("Delete exception:", err);
     }
-
-    try {
-      fetch(`/api/transactions/${id}?userId=${currentUserId}`, {
-        method: "DELETE",
-      }).catch(() => {});
-    } catch (err) {}
   };
 
   // Save transaction (add or edit) with Supabase sync
@@ -374,14 +357,6 @@ export default function App() {
       } catch (err) {
         console.error("Supabase update exception:", err);
       }
-
-      try {
-        await fetch(`/api/transactions/${transactionToEdit.id}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userId: currentUserId, ...txData }),
-        });
-      } catch (err) {}
     } else {
       // Add new
       const txId = "tx_" + Date.now();
@@ -413,14 +388,6 @@ export default function App() {
       } catch (err) {
         console.error("Supabase insert exception:", err);
       }
-
-      try {
-        await fetch(`/api/transactions`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ id: txId, userId: currentUserId, ...txData }),
-        });
-      } catch (err) {}
     }
   };
 
