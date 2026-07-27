@@ -38,95 +38,59 @@ Managing personal finances using paper registers or static spreadsheets is tedio
 
 ## ✨ Complete Features List
 
-- **🔐 User Authentication & Session Control**:
-  - Secure Email and Password Signup/Login flow.
-  - Persistent session management with client-side fallback and Supabase backend authorization.
-  - One-click **Logout** button that safely terminates sessions and redirects to the initial Welcome Landing Page.
-
-- **🌍 Dynamic Multi-Currency Engine**:
-  - Header currency dropdown supporting **PKR (Rs.)**, **USD ($)**, **EUR (€)**, **GBP (£)**, **INR (₹)**, **AED**, **SAR**, **CAD ($)**, and **AUD ($)**.
-  - Dynamically updates all balance cards, transaction logs, modal forms, and reports into the selected currency in real time.
-
-- **⚡ Full Transaction Lifecycle Management (CRUD)**:
-  - **Create**: Log income and expense records with amount, date, description, category, and payment method.
-  - **Read**: View structured transaction tables equipped with search bars, category dropdown filters, and date ordering.
-  - **Update**: Edit existing financial entries dynamically.
-  - **Delete**: Instant row deletion via the trash icon with immediate, live recalculation of Total Net Worth, Total Income, Total Expenses, and Savings Rate %.
-
-- **🇵🇰 Comprehensive Categories & Localized Payment Channels**:
-  - **Categories**: Food & Groceries, Rent & Housing, Bills & Utilities, Transport & Fuel, Education & Fees, Health & Medical, Shopping & Clothes, Entertainment & Dining, Salary, Freelance, Investments, Personal Care, Gifts & Donations, Savings, and Other.
-  - **Payment Methods**: Cash, JazzCash, EasyPaisa, SadaPay, NayaPay, Raast, Bank Transfer, Credit/Debit Card, PayPal, Apple Pay, and Other.
-
-- **📄 Professional PDF Financial Statement Export**:
-  - Replaces basic CSV exports with a clean, branded, printable PDF financial report containing user metadata, balance overview cards, and itemized transaction logs.
-
-- **🤖 AI-Powered Financial Advisor**:
-  - Integrated AI budget coach that analyzes income vs. spending ratios in real time to offer tailored budget-saving tips.
-
-- **🗄️ Supabase Realtime Database Integration & RLS Support**:
-  - Cloud database synchronization featuring Row Level Security (RLS) policies and an interactive database setup modal with copyable SQL scripts.
+- **User Authentication & Session Control**: Secure Email/Password Signup/Login with Supabase backend authorization and 1-click Logout.
+- **Dynamic Multi-Currency Engine**: Supports PKR (Rs.), USD ($), EUR (€), GBP (£), INR (₹), AED, SAR, CAD, and AUD with live currency conversion formatting.
+- **Full Transaction Lifecycle (CRUD)**: Create, view, edit, and delete transactions with instant, real-time recalculation of net worth and savings rate.
+- **Localized Payment Channels & Categories**: Includes JazzCash, EasyPaisa, SadaPay, NayaPay, Raast alongside a wide array of expense categories.
+- **Professional PDF Financial Statement Export**: Generates printable financial reports summarizing net balance and itemized history.
+- **AI-Powered Financial Advisor**: Analyzes monthly cash flow to provide tailored budget-saving recommendations.
+- **Supabase Realtime Database Integration**: Secure cloud synchronization with RLS support.
 
 ---
 
 ## 🤖 AI Feature & System Prompt Engineering
 
-### How the AI Feature Works
-The **AI Advisor** acts as an automated virtual financial consultant. It reviews the user's logged financial snapshot (Total Monthly Income, Total Expenses, Net Remaining Balance, Savings Rate %, and Top Categories) to generate short, concrete, and encouraging advice aimed at optimizing cash flow and curbing discretionary overspending.
+The **AI Advisor** acts as an automated virtual financial consultant. It reviews the user's logged financial snapshot to generate short, concrete, and encouraging advice.
 
-### AI Infrastructure
-- **Model**: Google Gemini 1.5 Flash (`@google/generative-ai`)
-- **Execution**: Asynchronous REST stream configured with structured system prompts.
+**System Prompt Used:**
+> "You are SpendWise AI, a certified senior financial advisor and empathetic budget coach. Analyze the user's current financial snapshot and provide clear, encouraging, and highly specific financial coaching. Identify discretionary spending leaks and provide 3 actionable recommendations."
 
-### System Prompt Driving the AI Engine
-```text
-You are SpendWise AI, a certified senior financial advisor and empathetic budget coach.
-Your task is to analyze the user's current financial snapshot and provide clear, encouraging, and highly specific financial coaching.
+---
 
-Input Data Provided:
-- User Profile: {userName}
-- Currency Selected: {currencySymbol}
-- Total Income Logged: {totalIncome}
-- Total Expense Logged: {totalExpenses}
-- Net Balance Remaining: {netBalance}
-- Savings Rate: {savingsRatePercentage}%
-- Recent Transactions Breakdown: {transactionListJSON}
+## 🛠️ Tools, Services, and AI Models Used
 
-Instructions:
-1. Evaluate the user's financial health based on their Savings Rate and Net Balance.
-2. Identify the single largest expense category causing budget leaks.
-3. Provide 3 short, concrete, actionable recommendations to reduce discretionary spending.
-4. Keep the tone empathetic, professional, clear, and concise. Avoid complex financial jargon.
+- **Frontend**: React 18, Vite, TypeScript, Tailwind CSS, Lucide Icons
+- **Backend & Database**: Supabase (PostgreSQL, Realtime)
+- **AI Model**: Google Gemini 1.5 Flash (`@google/generative-ai`)
+- **Hosting**: Netlify Deployment Platform
 
-🛠️ Tools, Services, and AI Models Used
+---
 
-| Category                            | Technology / Service                                 |
-| :---------------------------------- | :--------------------------------------------------- |
-| **Frontend Framework**              | React 18, Vite, TypeScript                           |
-| **Styling & UI Components**         | Tailwind CSS, Lucide React Icons, Framer Motion      |
-| **AI Model & SDK**                  | Google Gemini 1.5 Flash (`@google/generative-ai`)    |
-| **Database & Auth**                 | Supabase (PostgreSQL, Realtime Client, RLS Policies) |
-| **PDF Generation Engine**           | HTML5 Printable PDF Engine                           |
-| **Version Control**                 | Git & GitHub Desktop                                 |
-| **Hosting & Continuous Deployment** | Netlify Deployment Platform                          |
+## 📸 Screenshots of the App in Action
 
-📸 Screenshots of the App in Action
+### 1. Welcome Landing & Auth View
+![Landing Page](https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=80)
+*Clean Welcome page introducing SpendWise AI features with secure user Login/Signup modals.*
 
-1. Welcome Landing Hero & Auth View
+### 2. Financial Overview Dashboard
+![Dashboard View](https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80)
+*Interactive dashboard displaying Net Balance, Income, Expense, Savings Rate, and Multi-Currency Dropdown.*
 
-2. Financial Overview Dashboard & Multi-Currency Header
+### 3. Transactions Manager & PDF Export
+![Transactions View](https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80)
+*Transaction management view with category filters, delete action, and PDF statement export.*
 
-3. Transactions Manager & PDF Export
+### 4. AI Financial Advisor Interface
+![AI Advisor View](https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1000&q=80)
+*AI Financial Coach providing personalized savings advice based on real-time spending logs.*
 
-4. Add Transaction Modal (Categories & Local Payment Methods)
+---
 
-5. AI Financial Advisor Interface
+## 🗄️ Database Setup & Supabase RLS Script
 
-🗄️ Database Setup & Supabase RLS Script
+Execute this SQL script inside your **Supabase SQL Editor**:
 
-To set up the Supabase database manually, execute the following SQL script
-inside the Supabase SQL Editor:
-
--- Create Transactions Table
+```sql
 CREATE TABLE IF NOT EXISTS transactions (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   user_id TEXT NOT NULL,
@@ -138,25 +102,11 @@ CREATE TABLE IF NOT EXISTS transactions (
   date DATE NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
-
--- Disable RLS for testing or create public policies
+ ```
 ALTER TABLE transactions DISABLE ROW LEVEL SECURITY;
-
--- Enable Realtime Sync
 ALTER PUBLICATION supabase_realtime ADD TABLE transactions;
 
 💻 How to Run the Project Locally
-
-Follow these instructions to run SpendWise AI on your local machine:
-
-Prerequisites
-
-  - Node.js (v18.0.0 or higher)
-  - npm or yarn or bun
-  - A free Google AI Studio Gemini API Key
-  - A free Supabase Account
-
-Step-by-Step Installation Guide
 
 1.  Clone the Repository:
 
@@ -167,24 +117,17 @@ Step-by-Step Installation Guide
 
     npm install
 
-3.  Configure Environment Variables: Create a .env.local file in the project
-    root folder:
+3.  Configure Environment Variables: Create a .env.local file:
 
     VITE_GEMINI_API_KEY=your_gemini_api_key_here
     VITE_SUPABASE_URL=your_supabase_project_url
     VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 
-4.  Start the Development Server:
+4.  Start Development Server:
 
     npm run dev
 
-    Open your browser and navigate to http://localhost:5173.
-
-5.  Build for Production:
-
-    npm run build
-
 📜 License
 
-Distributed under the MIT License. See LICENSE for more information.
+Distributed under the MIT License.
 
