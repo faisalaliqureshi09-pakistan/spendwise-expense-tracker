@@ -68,22 +68,39 @@ The **AI Advisor** acts as an automated virtual financial consultant. It reviews
 
 ## 📸 Screenshots of the App in Action
 
-### 1. Welcome Landing & Auth View
-![Landing Page](https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=80)
-*Clean Welcome page introducing SpendWise AI features with secure user Login/Signup modals.*
+### 1. Welcome Landing Hero & Auth Modal
+![Landing Page](./public/screenshots/landing.png)
+*Clean Welcome page introducing SpendWise AI features with secure user Login/Signup modals and demo account option.*
+
+---
 
 ### 2. Financial Overview Dashboard
-![Dashboard View](https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80)
-*Interactive dashboard displaying Net Balance, Income, Expense, Savings Rate, and Multi-Currency Dropdown.*
+![Financial Dashboard](./public/screenshots/dashboard.png)
+*Interactive dashboard displaying Total Balance, Income, Expense, Savings Rate, and Multi-Currency Dropdown.*
 
-### 3. Transactions Manager & PDF Export
-![Transactions View](https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80)
-*Transaction management view with category filters, delete action, and PDF statement export.*
+---
 
-### 4. AI Financial Advisor Interface
-![AI Advisor View](https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1000&q=80)
-*AI Financial Coach providing personalized savings advice based on real-time spending logs.*
+### 3. Income vs. Expenses Trend & Category Breakdown
+![Analytics Charts](./public/screenshots/analytics.png)
+*Visual financial trajectory charts and spending distribution breakdown by category.*
 
+---
+
+### 4. Transactions Manager & Recent Logs
+![Transactions Manager](./public/screenshots/transactions.png)
+*Transaction management view with category filters, payment method tagging, and recent record logs.*
+
+---
+
+### 5. Monthly Budgets & Spending Caps
+![Budgets View](./public/screenshots/budgets.png)
+*Budget tracking interface with visual progress bars monitoring monthly spending limits per category.*
+
+---
+
+### 6. AI Financial Advisor (Gemini AI Coach)
+![AI Advisor Screen](./public/screenshots/ai-advisor.png)
+*AI Financial Coach providing personalized savings insights and financial health coaching based on real-time data.*
 ---
 
 ## 🗄️ Database Setup & Supabase RLS Script
@@ -109,24 +126,24 @@ ALTER PUBLICATION supabase_realtime ADD TABLE transactions;
 💻 How to Run the Project Locally
 
 1.  Clone the Repository:
-
+```sql
     git clone https://github.com/faisalaliqureshi09-pakistan/spendwise-expense-tracker.git
     cd spendwise-expense-tracker
-
+```
 2.  Install Dependencies:
-
+```sql
     npm install
-
+```
 3.  Configure Environment Variables: Create a .env.local file:
-
+``
     VITE_GEMINI_API_KEY=your_gemini_api_key_here
     VITE_SUPABASE_URL=your_supabase_project_url
     VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-
+``
 4.  Start Development Server:
-
+```sql
     npm run dev
-
+```
 📜 License
 
 Distributed under the MIT License.
