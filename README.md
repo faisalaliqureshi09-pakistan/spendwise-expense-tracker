@@ -92,7 +92,7 @@ The **AI Advisor** acts as an automated virtual financial consultant. It reviews
 *Budget tracking interface with visual progress bars monitoring monthly spending limits per category.*
 
 ### 6. AI Financial Advisor (Gemini AI Coach)
-<img width="1348" height="644" alt="AI Advisor" src="https://github.com/user-attachments/assets/7b74fad1-e07e-4b42-b30d-035222d3a4b0" />
+<img width="1346" height="639" alt="image" src="https://github.com/user-attachments/assets/f3a0908e-5436-46ce-a97d-e5e35f748c24" />
 *AI Financial Coach providing personalized savings insights and financial health coaching based on real-time data.*
 
 ---
